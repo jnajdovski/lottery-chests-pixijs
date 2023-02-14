@@ -22,7 +22,7 @@ class Layer extends Container {
     onCreate() {
     }
 
-    onStart() {
+    onStart(args?: any[]) {
 
     }
 

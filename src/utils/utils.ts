@@ -1,16 +1,18 @@
 import { AnimatedSprite, Cache, Texture } from "pixi.js"
 
-export const getWinData = (): { amount: number, bonus: boolean } => {
+export const getWinData = (): { haveWin: boolean, amount: number, bonus: boolean } => {
     if (haveWin()) {
         const bonus = isBonus()
         const amount = bonus ? getWinAmount() * 4 : getWinAmount()
         return {
+            haveWin: true,
             amount,
             bonus
         }
     }
 
     return {
+        haveWin: false,
         amount: 0,
         bonus: false
     }

@@ -24,12 +24,12 @@ class LayerManager {
         return layer
     }
 
-    setActive(key: string, active: boolean) {
+    setActive(key: string, active: boolean, ...args: any[]) {
         this.list.forEach((layer) => {
             layer.setActive(layer.key === key ? active : false)
             layer.visible = layer.key === key ? active : false
             if (layer.visible) {
-                layer.onStart()
+                layer.onStart(args)
             }
         })
     }

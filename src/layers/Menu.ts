@@ -21,7 +21,7 @@ class Menu extends Layer {
         this.sortChildren()
     }
 
-    goToOption(option: string) {
+    goToOption(option: string): void {
         this.game.layers.setActive(option, true)
     }
 

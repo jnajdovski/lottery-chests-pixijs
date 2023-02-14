@@ -1,15 +1,24 @@
+import { Sprite, Cache } from 'pixi.js';
+import Button from '../components/Button';
 import Layer from '../sys/Layer'
-import LayerManager from '../sys/LayerManager';
 
 class Menu extends Layer {
     private gameW: number = this.game.renderer.options.width as number
     private gameH: number = this.game.renderer.options.height as number
 
-    private layerManager: LayerManager | undefined
+    async onCreate(): Promise<void> {
+        const background = new Sprite(Cache.get('1_game_background.jpg'))
+        background.width = this.gameW
+        background.height = this.gameH
+        const startBtn: Button = new Button(Cache.get('button_start.png'), this.gameW / 2, this.gameH / 2, 'start')
 
-    onCreate(): void {
-        console.log('Menu Created');
+        startBtn.on('click', () => {
+            this.game.layers.setActive('lottery', true)
+        })
 
+        this.addChild(background)
+        this.addChild(startBtn)
+        this.sortChildren()
     }
 
     goToOption(option: string) {

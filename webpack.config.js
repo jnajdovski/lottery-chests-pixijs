@@ -21,7 +21,7 @@ const config = {
   plugins: [
     new HtmlWebpackPlugin({
       templateContent: ({ htmlWebpackPlugin }) => renderHTML({
-        title: 'pixijs-examples'
+        title: 'lottery-chests-pixijs'
       }),
       filename: 'index.html',
     })

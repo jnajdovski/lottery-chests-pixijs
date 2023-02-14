@@ -15,6 +15,7 @@ class Layer extends Container {
         this.game = game
         this.key = key
         this.fpsCounter = new Text(this.game.ticker.FPS)
+        this.fpsCounter.zIndex = 10000
         this.addChild(this.fpsCounter)
     }
 

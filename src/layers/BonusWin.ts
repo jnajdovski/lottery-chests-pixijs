@@ -45,6 +45,7 @@ class BonusWin extends Layer {
         this.winAmountText.position.y = this.bonusWin.position.y + 180
         this.winAmountText.visible = false
         this.addChild(this.winAmountText)
+        this.sortChildren()
     }
 
     onStart(winAmount: any[]): void {

@@ -1,8 +1,6 @@
 .cache/
 coverage/
-dist/*
-!dist/assets
-!dist/style.css
+dist
 node_modules/
 *.log
 

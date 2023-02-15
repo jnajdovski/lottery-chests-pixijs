@@ -4,6 +4,8 @@ const path = require('path')
 const process = require('process')
 const Mustache = require('mustache')
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
+const TerserPlugin = require("terser-webpack-plugin");
 
 const renderHTML = (options) => {
   let htmlTemplate = fs.readFileSync(path.join(process.cwd(), './src/index.html')).toString()
@@ -11,7 +13,6 @@ const renderHTML = (options) => {
 }
 
 const config = {
-  mode: 'development',
   entry: './src/index.ts',
   devtool: 'inline-source-map',
   output: {
@@ -24,7 +25,12 @@ const config = {
         title: 'lottery-chests-pixijs'
       }),
       filename: 'index.html',
-    })
+    }),
+    new CopyPlugin({
+      patterns: [
+        { from: "public/assets", to: "assets",force: true },
+        { from: "public/", to: "",force: true },
+      ]}),
   ],
   module: {
     rules: [
@@ -53,7 +59,7 @@ const config = {
   },
   devServer: {
     static: {
-      directory: path.join(__dirname, 'dist'),
+      directory: path.join(__dirname, 'public'),
     },
     compress: true,
     port: 9000,

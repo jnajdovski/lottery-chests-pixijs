@@ -4,6 +4,7 @@ Lottery Chests is an simple game in which players click on a chest to reveal a p
 
 ### 🚀 Getting started
 ```js
+git clone git@github.com:jnajdovski/lottery-chests-pixijs.git
 npm install
 npm start
 ```

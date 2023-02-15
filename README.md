@@ -7,7 +7,7 @@ Lottery Chests is an simple game in which players click on a chest to reveal a p
 npm install
 npm start
 ```
-[Project is running here](http://localhost:9000/)
+[Project is running on: http://localhost:9000/](http://localhost:9000/)
 
 ### :bricks: Build
 ```js
